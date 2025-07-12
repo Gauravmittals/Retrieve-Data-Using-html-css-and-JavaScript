@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 10px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      #output {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Local Storage Example</h1>
+      <input type="text" id="input-text" placeholder="Enter Text" />
+      <button onclick="savetext()">save</button>
+      <button onclick="retrievetext()">Retrieve</button>
+      <div id="output"></div>
+    </div>
+    <script>
+      function savetext() {
+        const textInput = document.getElementById("input-text").value;
+        localStorage.setItem("saveText", textInput);
+        document.getElementById("input-text").value = "";
+      }
+      function retrievetext() {
+        const saveText = localStorage.getItem("saveText");
+        if (saveText) {
+          document.getElementById("output").textContent = saveText;
+        } else {
+          document.getElementById("output").textContent = "No Saved";
+        }
+      }
+    </script>
+  </body>
+</html>
